@@ -1,9 +1,9 @@
 package by.brest.mts.MyOne;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class RestControllerMy {
@@ -29,12 +29,27 @@ public class RestControllerMy {
         return serg;
     }
 
+    @GetMapping("/humans")
+    public List<Human> getHumans() {
+        List<Human> humans = new ArrayList<>();
+        humans.add(new Human("Serega", 35, 70));
+        humans.add(new Human("Sasha", 40, 78));
+        humans.add(new Human("Vasya", 55, 85));
+
+        return humans;
+    }
+
 
 
     // POST
     @PostMapping("/new")
     public void inputMethod(@RequestBody int a) {
         System.out.println("a = " + a);
+    }
+
+    @PostMapping("/newhuman")
+    public void newHuman(@RequestBody Human myNewHuman) {
+        System.out.println("myNewHuman = " + myNewHuman.toString());
     }
 
 }

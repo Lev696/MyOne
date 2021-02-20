@@ -9,6 +9,14 @@ public class MtsSaler {
         this.section = "nothing";
     }
 
+    @Override
+    public String toString() {
+        return "MtsSaler{" +
+                "id=" + id +
+                ", section='" + section + '\'' +
+                '}';
+    }
+
     public int getId() {
         return id;
     }

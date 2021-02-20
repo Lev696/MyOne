@@ -23,6 +23,17 @@ public class Human {
         this.weightIndex = weigth/age;
     }
 
+    @Override
+    public String toString() {
+        return "Human{" +
+                "saler=" + saler +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", weigth=" + weigth +
+                ", weightIndex=" + weightIndex +
+                '}';
+    }
+
     public int getAge() {
         return age;
     }
