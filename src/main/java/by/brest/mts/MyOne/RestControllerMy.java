@@ -1,5 +1,6 @@
 package by.brest.mts.MyOne;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -8,6 +9,9 @@ import java.util.List;
 @RestController
 public class RestControllerMy {
     // http://192.168.3.15/hello    (localhost, 127.0.0.1)
+
+    @Autowired
+    HumansStorage humansStorage;
 
     @GetMapping("/hello")
     public String homePage() {
@@ -39,6 +43,10 @@ public class RestControllerMy {
         return humans;
     }
 
+    @GetMapping("/humansStorage")
+    public List<Human> getHumansStorage() {
+        return humansStorage.getAllHumans();
+    }
 
 
     // POST
@@ -49,7 +57,8 @@ public class RestControllerMy {
 
     @PostMapping("/newhuman")
     public void newHuman(@RequestBody Human myNewHuman) {
-        System.out.println("myNewHuman = " + myNewHuman.toString());
+        System.out.println("# Added human: " + myNewHuman.toString());
+        humansStorage.addHuman(myNewHuman);
     }
 
 }
