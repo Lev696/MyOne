@@ -57,6 +57,12 @@ public class Human {
         this.weigth = weigth;
     }
 
+    public MtsSaler getSaler() {
+        return saler;
+    }
 
+    public void setSaler(MtsSaler saler) {
+        this.saler = saler;
+    }
 }
 
