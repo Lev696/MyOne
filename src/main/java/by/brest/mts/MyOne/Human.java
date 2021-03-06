@@ -13,7 +13,6 @@ public class Human {
     @GeneratedValue(strategy= GenerationType.AUTO)
     Integer id;
 
-    private MtsSaler saler;
     private String name;
     private int age;
     private float weigth;
@@ -21,7 +20,6 @@ public class Human {
 
     {
         this.weigth = 1;
-        saler = new MtsSaler();
     }
 
     public Human(String name, int age, float weigth) {
@@ -34,7 +32,6 @@ public class Human {
     @Override
     public String toString() {
         return "Human{" +
-                "saler=" + saler +
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", weigth=" + weigth +
@@ -74,14 +71,6 @@ public class Human {
 
     public void setWeigth(float weigth) {
         this.weigth = weigth;
-    }
-
-    public MtsSaler getSaler() {
-        return saler;
-    }
-
-    public void setSaler(MtsSaler saler) {
-        this.saler = saler;
     }
 }
 
