@@ -13,6 +13,10 @@ public class RestControllerMy {
     @Autowired
     HumansStorage humansStorage;
 
+    @Autowired
+    HumanService humanService;
+
+    // http://localhost/hello
     @GetMapping("/hello")
     public String homePage() {
         System.out.println("Invoked /hello");
@@ -59,6 +63,12 @@ public class RestControllerMy {
     public void newHuman(@RequestBody Human myNewHuman) {
         System.out.println("# Added human: " + myNewHuman.toString());
         humansStorage.addHuman(myNewHuman);
+    }
+
+    // JPA Added
+    @GetMapping("/jpahumans")
+    public List<Human> findAllHumans() {
+        return humanService.findAllHumans();
     }
 
 }

@@ -1,9 +1,17 @@
 package by.brest.mts.MyOne;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 //@JsonSerialize
+@Entity
 public class Human {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    Integer id;
 
     private MtsSaler saler;
     private String name;

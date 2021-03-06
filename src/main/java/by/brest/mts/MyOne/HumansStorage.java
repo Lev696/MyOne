@@ -9,7 +9,6 @@ import java.util.List;
 public class HumansStorage {
     List<Human> allHumans;
 
-
     public HumansStorage() {
         allHumans = new ArrayList<>();
     }
