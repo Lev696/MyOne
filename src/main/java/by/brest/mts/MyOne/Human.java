@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-//@JsonSerialize
+
 @Entity
 public class Human {
 
@@ -15,18 +15,21 @@ public class Human {
 
     private String name;
     private int age;
-    private float weigth;
+    private float weight;
     private float weightIndex;
 
     {
-        this.weigth = 1;
+        this.weight = 1;
     }
 
-    public Human(String name, int age, float weigth) {
+    public Human() {
+    }
+
+    public Human(String name, int age, float weight) {
         this.name = name;
         this.age = age;
-        this.weigth = weigth;
-        this.weightIndex = weigth/age;
+        this.weight = weight;
+        this.weightIndex = weight/age;
     }
 
     @Override
@@ -34,7 +37,7 @@ public class Human {
         return "Human{" +
                 ", name='" + name + '\'' +
                 ", age=" + age +
-                ", weigth=" + weigth +
+                ", weight=" + weight +
                 ", weightIndex=" + weightIndex +
                 '}';
     }
@@ -65,12 +68,12 @@ public class Human {
         this.name = name;
     }
 
-    public float getWeigth() {
-        return weigth;
+    public float getweight() {
+        return weight;
     }
 
-    public void setWeigth(float weigth) {
-        this.weigth = weigth;
+    public void setweight(float weight) {
+        this.weight = weight;
     }
 }
 

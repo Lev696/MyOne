@@ -65,10 +65,45 @@ public class RestControllerMy {
         humansStorage.addHuman(myNewHuman);
     }
 
+
+
+
+
+
+
+    // ##############################################
     // JPA Added
     @GetMapping("/jpahumans")
     public List<Human> findAllHumans() {
         return humanService.findAllHumans();
+    }
+
+    @GetMapping("/jpahumansbyname/{name}")
+    public List<Human> findHumansByName(@PathVariable String name) {
+        return humanService.findHumanByName(name);
+    }
+
+    @GetMapping("/jpafirsthumanbyname/{name}")
+    public Human findFirstHumanByName(@PathVariable String name) {
+        return humanService.findFirstByName(name);
+    }
+
+    @GetMapping("jpahumansbycondition/{ageFrom}/{ageTo}/{weightFrom}/{weightTo}")
+    public List<Human> findHumansByCondition(@PathVariable Integer ageFrom, @PathVariable Integer ageTo,
+                                             @PathVariable float weightFrom, @PathVariable float weightTo) {
+        return humanService.findHumansByCondition(ageFrom, ageTo, weightFrom, weightTo);
+    }
+
+    @GetMapping("jpahumansbycondition2/{ageFrom}/{ageTo}/{weightFrom}/{weightTo}")
+    public List<Human> findAllByAgeBetweenAndWeightBetween(@PathVariable Integer ageFrom, @PathVariable Integer ageTo,
+                                             @PathVariable float weightFrom, @PathVariable float weightTo) {
+        return humanService.findAllByAgeBetweenAndWeightBetween(ageFrom, ageTo, weightFrom, weightTo);
+    }
+
+    @GetMapping("jpalong/{namepart}/{ageless}/{weightgreater}")
+    public List<Human> findAllLong(@PathVariable String namepart, @PathVariable Integer ageless,
+                                                           @PathVariable float weightgreater) {
+        return humanService.findAllByNameContainsAndAgeIsLessThanAndWeightGreaterThanOrderByAge(namepart, ageless, weightgreater);
     }
 
 }

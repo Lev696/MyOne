@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class HumanRunner implements CommandLineRunner {
 
+
     @Autowired
     HumanRepository humanRepository;
 
@@ -21,5 +22,9 @@ public class HumanRunner implements CommandLineRunner {
         humanRepository.save(new Human("Leha", 17, 77));
         humanRepository.save(new Human("Sasha", 27, 78));
         humanRepository.save(new Human("Meow", 4, 7));
+        humanRepository.save(new Human("Petya", 36, 72));
+        humanRepository.save(new Human("Vasya", 41, 85));
+        humanRepository.save(new Human("Serega", 35, 75));
     }
+
 }
